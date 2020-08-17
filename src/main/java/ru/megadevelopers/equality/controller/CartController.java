@@ -24,9 +24,9 @@ public class CartController {
         cart.getItems().add(item);
 
 
-        logger.info("Item is inside the card before save: {}", cart.getItems().contains(item));
+        logger.info("Item is inside the cart before save: {}", cart.getItems().contains(item));
         cart = cartRepository.save(cart);
-        logger.info("Item is inside the card after save: {}", cart.getItems().contains(item));
+        logger.info("Item is inside the cart after save: {}", cart.getItems().contains(item));
 
         return cart;
     }
