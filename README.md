@@ -57,8 +57,8 @@ public class Items
 ```
 А теперь следите за руками: перед сохранением в базу и сразу после проверяем, находится ли item внутри cart-а.
 ```
-2020-08-21 19:15:07.261  INFO 17912 --- [nio-8080-exec-1] r.m.equality.controller.CartController   : Item is inside the cart before save: true
-2020-08-21 19:15:07.322  INFO 17912 --- [nio-8080-exec-1] r.m.equality.controller.CartController   : Item is inside the cart after save: false
+2020-08-21 19:15:07.261  INFO 17912 : Item is inside the cart before save: true
+2020-08-21 19:15:07.322  INFO 17912 : Item is inside the cart after save: false
 ```
 Это действительно контринтуитивно, но item "пропал" из cart-а. На самом деле, item все ещё находится и является единственным элементов в Set-е `Cart.items`. Но, так как для этого объекта сгенерировался id-шник, и объекта поле `id` вместо `null`-а получило значение, то у объекта изменился `hashCode` и мы больше не можем найти его внутри `HashSet`-а, несмотря на то, что он всё ещё внутри.
 Такое поведение может привести (и в реальности приводило) к проблемам и багам в продукте.
