@@ -1,5 +1,7 @@
 package ru.megadevelopers.equality.model;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;

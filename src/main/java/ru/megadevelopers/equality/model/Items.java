@@ -1,6 +1,7 @@
 package ru.megadevelopers.equality.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
